@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
+/**
+ * Main Method
+ */
 public class MainActivity extends AppCompatActivity {
 
     // Used to load the 'native-lib' library on application startup.

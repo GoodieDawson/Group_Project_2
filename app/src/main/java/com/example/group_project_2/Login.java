@@ -32,7 +32,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void openProfile () {
-        Intent intent = new Intent(this, UserProfile.class);
+        Intent intent = new Intent(this, Scan.class);
         startActivity(intent);
     }
 

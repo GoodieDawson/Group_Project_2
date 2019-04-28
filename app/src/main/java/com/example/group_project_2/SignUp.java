@@ -49,5 +49,8 @@ public class SignUp extends AppCompatActivity {
 
         Toast.makeText(SignUp.this, "It worked i think", Toast.LENGTH_LONG).show();
 
+        username.setText("");
+        password.setText("");
+        password2.setText("");
     }
 }

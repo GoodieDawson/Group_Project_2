@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Group_Project_2</string>
-    <string name="Start_Text">Welcome to RePsyche!</string>
+    <string name="welcome_to_repsyche">Welcome to RePsyche!</string>
 </resources>

@@ -2,6 +2,7 @@ package com.example.group_project_2;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import com.google.android.gms.vision.CameraSource;
@@ -30,5 +31,22 @@ public class Scan extends AppCompatActivity {
                 .Builder(this, bcd)
                 .setRequestedPreviewSize(640, 480)
                 .build();
+
+        sv.getHolder().addCallback(new SurfaceHolder.Callback() {
+            @Override
+            public void surfaceCreated(SurfaceHolder holder) {
+
+            }
+
+            @Override
+            public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+
+            }
+
+            @Override
+            public void surfaceDestroyed(SurfaceHolder holder) {
+
+            }
+        }
     }
 }

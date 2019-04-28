@@ -26,6 +26,11 @@ public class Login extends AppCompatActivity {
 
     }
 
+    public void signUp() {
+        Intent intent = new Intent(this, SignUp.class);
+        startActivity(intent);
+    }
+
     public void openProfile () {
         Intent intent = new Intent(this, UserProfile.class);
         startActivity(intent);

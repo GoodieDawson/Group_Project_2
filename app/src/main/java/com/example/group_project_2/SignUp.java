@@ -45,12 +45,12 @@ public class SignUp extends AppCompatActivity {
         String newpassword = password.getText().toString();
         String newpassword2 = password2.getText().toString();
 
-        if (username.equals("") || password.equals("") || password2.equals("")) {
+        if (newusername.equals("") || newpassword.equals("") || newpassword2.equals("")) {
             Toast.makeText(SignUp.this, "Please fill all fields", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if (!password.equals(password2) ) {
+        if (!newpassword.equals(newpassword2) ) {
             Toast.makeText(SignUp.this, "Please make sure that your passwords are equal", Toast.LENGTH_LONG).show();
             return;
         }

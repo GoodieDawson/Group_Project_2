@@ -7,16 +7,48 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 public class UserProfile extends AppCompatActivity {
 
+    TextView profilename;
+
+    DatabaseReference dbr;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+
+
+        profilename = (TextView) findViewById(R.id.profilename);
+        profilename.setText(getIntent().getStringExtra("username"));
+
+        dbr = FirebaseDatabase.getInstance().getReference("users");
+
+        dbr.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+
+        });
+
     }
+
 
     public void scanNow(View view){
         IntentIntegrator integrator = new IntentIntegrator(this);
@@ -37,11 +69,13 @@ public class UserProfile extends AppCompatActivity {
             String scanContent = scanningResult.getContents();
             String scanFormat = scanningResult.getFormatName();
 
+            dbr = FirebaseDatabase.getInstance().getReference("items");
+
             // display it on screen
-            TextView scan_format = (TextView) findViewById(R.id.scan_format);
-            TextView scan_content = (TextView) findViewById(R.id.scan_content);
-            scan_format.setText("FORMAT: " + scanFormat);
-            scan_content.setText("CONTENT: " + scanContent);
+            String id = dbr.push().getKey();
+            dbr.child(id).setValue(scanContent);
+            Toast.makeText(UserProfile.this, "Scan Successful", Toast.LENGTH_LONG).show();
+
 
         } else {
             Toast toast = Toast.makeText(getApplicationContext(), "No scan data received!", Toast.LENGTH_SHORT);

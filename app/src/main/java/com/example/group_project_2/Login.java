@@ -66,6 +66,7 @@ public class Login extends AppCompatActivity {
         });
 
         Intent intent = new Intent(this, UserProfile.class);
+        intent.putExtra("username", loginuser.getText().toString());
         startActivity(intent);
     }
 

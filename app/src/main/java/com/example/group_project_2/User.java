@@ -7,12 +7,13 @@ public class User {
     private String username;
     private String password;
     private String type;
+    private int balance;
 
     public User (String username, String password, String type) {
         this.username = username;
         this.password = password;
         this.type = type;
-        Random randomNumberGenerator = new Random();
+        this.balance = 0;
 
     }
 
@@ -39,5 +40,13 @@ public class User {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 }

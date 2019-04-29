@@ -1,16 +1,14 @@
 <resources>
     <string name="app_name">Group_Project_2</string>
-    <string name="welcome_to_repsyche">Welcome to RePsyche!</string>
-    <string name="begin">Begin</string>
+    <string name="welcome_to_repsyche">RePsyche!</string>
+    <string name="enter">Enter</string>
     <string name="login">Login</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="sign_up">Sign-Up</string>
     <string name="re_enter_password">Re-Enter Password</string>
-    <string name="don_t_have_an_account_click_here_to_sign_up">Don\'t have an account? Click here to sign up.</string>
+    <string name="don_t_have_an_account_click_here_to_sign_up">Don\'t have an account? Click here to sign up</string>
     <string name="todo">TODO</string>
     <string name="scan">Scan</string>
-    <string name="balance">Balance:</string>
-    <string name="user">User:</string>
-    <string name="make_purchase">Make Purchase</string>
+    <string name="login_prompt_text">Please fill in the details below to login</string>
 </resources>

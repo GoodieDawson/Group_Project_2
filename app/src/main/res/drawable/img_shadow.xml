@@ -71,7 +71,7 @@
     <!-- Background Color (white) -->
     <item>
         <shape android:shape="oval">
-            <solid android:color="@color/colorPrimary" />
+            <solid android:color="#FFFFFF" />
 
             <corners android:radius="5dp" />
         </shape>

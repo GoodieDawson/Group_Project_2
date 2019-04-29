@@ -8,15 +8,16 @@
     <string name="sign_up">Sign-Up</string>
     <string name="re_enter_password">Re-Enter Password</string>
     <string name="don_t_have_an_account_click_here_to_sign_up">Don\'t have an account? Click here to sign up</string>
-    <string name="scan">Scan</string>
+    <string name="scan">Scan a Barcode</string>
     <string name="login_prompt_text">Please fill in the details below to login</string>
     <string name="login_welcome">Welcome</string>
     <string name="sign_up_title">Sign Up</string>
     <string name="sign_up_prompt">We\'re happy you\'re here! Sign up to begin</string>
-    <string name="balance_text">balance</string>
-    <string name="user_text">user</string>
+    <string name="balance_text">Your Credit Balance</string>
+    <string name="user_text">Hey there</string>
     <string name="make_purchase_text">Make Purchase</string>
     <string name="select_user">Select User or relevant stakeholder</string>
+    <string name="action_prompt">Select a button to perform an action</string>
 
     <string-array name="names">
         <item>User</item>

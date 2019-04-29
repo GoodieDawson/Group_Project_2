@@ -3,8 +3,10 @@ package com.example.group_project_2;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -37,6 +39,14 @@ public class SignUp extends AppCompatActivity {
                 signup();
             }
         });
+
+        Spinner mySpinner = (Spinner) findViewById(R.id.spinner1);
+
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(SignUp.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.names));
+
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mySpinner.setAdapter(myAdapter);
     }
 
     public void signup() {
@@ -65,4 +75,5 @@ public class SignUp extends AppCompatActivity {
         password.setText("");
         password2.setText("");
     }
+
 }

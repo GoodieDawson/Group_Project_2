@@ -11,4 +11,17 @@
     <string name="todo">TODO</string>
     <string name="scan">Scan</string>
     <string name="login_prompt_text">Please fill in the details below to login</string>
+    <string name="login_welcome">Welcome</string>
+    <string name="sign_up_title">Sign up</string>
+    <string name="sign_up_prompt">We\'re happy you\'re here! Sign up to begin</string>
+    <string name="balance_text">balance</string>
+    <string name="user_text">user</string>
+    <string name="make_purchase_text">make purchase</string>
+
+    <string-array name="names">
+        <item>Zoomlion</item>
+        <item>Akornor</item>
+        <item>BigBen</item>
+        <item>Essentials</item>
+    </string-array>
 </resources>

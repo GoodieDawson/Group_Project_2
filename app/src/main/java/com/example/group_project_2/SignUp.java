@@ -6,14 +6,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.example.group_project_2.User;
 
 public class SignUp extends AppCompatActivity {
 
     private EditText username, password, password2;
     private Button signup;
+
 
     DatabaseReference dbr;
 
@@ -39,15 +40,26 @@ public class SignUp extends AppCompatActivity {
     }
 
     public void signup() {
+
         String newusername = username.getText().toString();
         String newpassword = password.getText().toString();
         String newpassword2 = password2.getText().toString();
 
+        if (username.equals("") || password.equals("") || password2.equals("")) {
+            Toast.makeText(SignUp.this, "Please fill all fields", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (!password.equals(password2) ) {
+            Toast.makeText(SignUp.this, "Please make sure that your passwords are equal", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         String id = dbr.push().getKey();
+        User x = new User(newusername, newpassword, "user");
+        dbr.child(id).setValue(x);
 
-        dbr.child(id).setValue(newusername, newpassword);
-
-        Toast.makeText(SignUp.this, "It worked i think", Toast.LENGTH_LONG).show();
+        Toast.makeText(SignUp.this, "Sign-Up Successful", Toast.LENGTH_LONG).show();
 
         username.setText("");
         password.setText("");

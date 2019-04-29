@@ -29,4 +29,12 @@
 
     </string-array>
 
+    <string-array name="types">
+        <item>Plastic</item>
+        <item>Metal</item>
+        <item>Paper</item>
+        <item>Glass</item>
+
+    </string-array>
+
 </resources>

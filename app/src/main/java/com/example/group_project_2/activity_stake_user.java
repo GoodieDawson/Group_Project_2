@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 public class activity_stake_user extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

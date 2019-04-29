@@ -14,10 +14,11 @@
     <string name="sign_up_title">Sign Up</string>
     <string name="sign_up_prompt">We\'re happy you\'re here! Sign up to begin</string>
     <string name="balance_text">Your Credit Balance</string>
-    <string name="user_text">Hey there User!</string>
+    <string name="user_text">Hey there!</string>
     <string name="make_purchase_text">Make a Purchase</string>
     <string name="select_user">Select User or relevant stakeholder</string>
-    <string name="action_prompt">Select a button to perform an action</string>
+    <string name="welcome_stake">Welcome</string>
+    <string name="total_credit_text">Total Credits Available</string>
 
     <string-array name="names">
         <item>User</item>

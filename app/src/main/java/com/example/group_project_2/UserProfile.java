@@ -28,8 +28,12 @@ public class UserProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+        loadActivity();
 
 
+    }
+
+    public void loadActivity() {
         profilename = (TextView) findViewById(R.id.profilename);
         balance = (TextView) findViewById(R.id.balance);
         profilename.setText(getIntent().getStringExtra("username"));
@@ -43,7 +47,7 @@ public class UserProfile extends AppCompatActivity {
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                             User user = snapshot.getValue(User.class);
                             if(user.getUsername().equals(profilename.getText().toString())) {
-                                 balance.setText(String.valueOf(snapshot.getValue(User.class).getBalance()));
+                                balance.setText(String.valueOf(snapshot.getValue(User.class).getBalance()));
 
                             }
                         }
@@ -54,7 +58,6 @@ public class UserProfile extends AppCompatActivity {
                 });
 
     }
-
 
     public void scanNow(View view){
         IntentIntegrator integrator = new IntentIntegrator(this);
@@ -99,6 +102,8 @@ public class UserProfile extends AppCompatActivity {
 
                                 }
                             }
+                            loadActivity();
+
                         }
                         @Override
                         public void onCancelled(DatabaseError databaseError) {

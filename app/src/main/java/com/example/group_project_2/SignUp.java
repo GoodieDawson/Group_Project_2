@@ -16,6 +16,7 @@ public class SignUp extends AppCompatActivity {
 
     private EditText username, password, password2;
     private Button signup;
+    private Spinner mySpinner;
 
 
     DatabaseReference dbr;
@@ -40,7 +41,7 @@ public class SignUp extends AppCompatActivity {
             }
         });
 
-        Spinner mySpinner = (Spinner) findViewById(R.id.spinner1);
+        mySpinner = (Spinner) findViewById(R.id.spinner1);
 
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(SignUp.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.names));
@@ -54,6 +55,7 @@ public class SignUp extends AppCompatActivity {
         String newusername = username.getText().toString();
         String newpassword = password.getText().toString();
         String newpassword2 = password2.getText().toString();
+        String spinnertext = mySpinner.getSelectedItem().toString();
 
         if (newusername.equals("") || newpassword.equals("") || newpassword2.equals("")) {
             Toast.makeText(SignUp.this, "Please fill all fields", Toast.LENGTH_LONG).show();
@@ -66,7 +68,7 @@ public class SignUp extends AppCompatActivity {
         }
 
         String id = dbr.push().getKey();
-        User x = new User(newusername, newpassword, "user");
+        User x = new User(newusername, newpassword, spinnertext);
         dbr.child(id).setValue(x);
 
         Toast.makeText(SignUp.this, "Sign-Up Successful", Toast.LENGTH_LONG).show();

@@ -10,4 +10,7 @@
     <string name="don_t_have_an_account_click_here_to_sign_up">Don\'t have an account? Click here to sign up.</string>
     <string name="todo">TODO</string>
     <string name="scan">Scan</string>
+    <string name="balance">Balance:</string>
+    <string name="user">User:</string>
+    <string name="make_purchase">Make Purchase</string>
 </resources>

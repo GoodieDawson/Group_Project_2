@@ -7,7 +7,11 @@ public class User {
     private String username;
     private String password;
     private String type;
-    private int balance;
+    private double balance;
+
+    public User() {
+
+    }
 
     public User (String username, String password, String type) {
         this.username = username;
@@ -42,11 +46,11 @@ public class User {
         this.type = type;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 }

@@ -15,9 +15,12 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class UserProfile extends AppCompatActivity {
 
-    TextView profilename;
+    TextView profilename, balance;
 
     DatabaseReference dbr;
 
@@ -28,24 +31,27 @@ public class UserProfile extends AppCompatActivity {
 
 
         profilename = (TextView) findViewById(R.id.profilename);
+        balance = (TextView) findViewById(R.id.balance);
         profilename.setText(getIntent().getStringExtra("username"));
 
         dbr = FirebaseDatabase.getInstance().getReference("users");
 
-        dbr.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+        FirebaseDatabase.getInstance().getReference().child("users")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            User user = snapshot.getValue(User.class);
+                            if(user.getUsername().equals(profilename.getText().toString())) {
+                                 balance.setText(String.valueOf(snapshot.getValue(User.class).getBalance()));
 
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.getCode());
-            }
-
-        });
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
 
     }
 
@@ -75,6 +81,29 @@ public class UserProfile extends AppCompatActivity {
             String id = dbr.push().getKey();
             dbr.child(id).setValue(scanContent);
             Toast.makeText(UserProfile.this, "Scan Successful", Toast.LENGTH_LONG).show();
+
+            dbr = FirebaseDatabase.getInstance().getReference("users");
+
+            FirebaseDatabase.getInstance().getReference().child("users")
+                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                User user = snapshot.getValue(User.class);
+                                if(user.getUsername().equals(profilename.getText().toString())) {
+                                    dbr = FirebaseDatabase.getInstance().getReference("users").child(snapshot.getKey());
+                                    Map<String, Object> hopperUpdates = new HashMap<>();
+                                    hopperUpdates.put("balance", snapshot.getValue(User.class).getBalance() + 0.20);
+                                    dbr.updateChildren(hopperUpdates);
+
+
+                                }
+                            }
+                        }
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                        }
+                    });
 
 
         } else {

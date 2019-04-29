@@ -19,6 +19,7 @@
     <string name="select_user">Select User or relevant stakeholder</string>
     <string name="welcome_stake">Welcome</string>
     <string name="total_credit_text">Total Credits Available</string>
+    <string name="current_level_text">Current bins and their levels</string>
 
     <string-array name="names">
         <item>User</item>

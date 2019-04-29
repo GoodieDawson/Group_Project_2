@@ -16,8 +16,10 @@
     <string name="balance_text">balance</string>
     <string name="user_text">user</string>
     <string name="make_purchase_text">Make Purchase</string>
+    <string name="select_user">Select User or relevant stakeholder</string>
 
     <string-array name="names">
+        <item>User</item>
         <item>Zoomlion</item>
         <item>Akornor</item>
         <item>BigBen</item>
